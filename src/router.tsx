@@ -4,7 +4,7 @@ import { useAuth } from './contexts/AuthContext';
 import { Header } from './core/layout/Header';
 import { Footer } from './core/layout/Footer';
 
-const HomePage = lazy(() => import('./features/article/pages/home/HomePage').then(m => ({ default: m.HomePage })));
+const HomePage = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
 const AuthPage = lazy(() => import('./features/article/pages/auth/AuthPage').then(m => ({ default: m.AuthPage })));
 const ArticlePage = lazy(() => import('./features/article/pages/article/ArticlePage').then(m => ({ default: m.ArticlePage })));
 const EditorPage = lazy(() => import('./features/article/pages/editor/EditorPage').then(m => ({ default: m.EditorPage })));
