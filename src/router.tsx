@@ -5,7 +5,7 @@ import { Header } from './core/layout/Header';
 import { Footer } from './core/layout/Footer';
 
 const HomePage = lazy(() => import('./pages/Home').then(m => ({ default: m.Home })));
-const AuthPage = lazy(() => import('./features/article/pages/auth/AuthPage').then(m => ({ default: m.AuthPage })));
+const AuthPage = lazy(() => import('./pages/Auth').then(m => ({ default: m.Auth })));
 const ArticlePage = lazy(() => import('./features/article/pages/article/ArticlePage').then(m => ({ default: m.ArticlePage })));
 const EditorPage = lazy(() => import('./features/article/pages/editor/EditorPage').then(m => ({ default: m.EditorPage })));
 const ProfilePage = lazy(() => import('./features/profile/pages/profile/ProfilePage').then(m => ({ default: m.ProfilePage })));
