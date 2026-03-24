@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from './core/auth/AuthContext';
+import { useAuth } from './contexts/AuthContext';
 import { Header } from './core/layout/Header';
 import { Footer } from './core/layout/Footer';
 

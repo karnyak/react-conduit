@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import type { User, AuthState } from './user.model';
-import { userService } from './services/user.service';
-import { jwtService } from './services/jwt.service';
+import { authService, jwtService } from '../services/auth.service';
+import type { User, AuthState } from '../services/auth.service';
 
 interface AuthContextValue {
   user: User | null;
@@ -23,7 +22,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setAuthState('unauthenticated');
       return;
     }
-    userService.getCurrentUser()
+    authService.getCurrentUser()
       .then((u) => { setUserState(u); setAuthState('authenticated'); })
       .catch((err) => {
         if (err?.status >= 400 && err?.status < 500) {

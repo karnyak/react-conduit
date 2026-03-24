@@ -1,8 +1,24 @@
-import { api } from '../../interceptors/api';
-import { jwtService } from './jwt.service';
-import type { User } from '../user.model';
+import { api } from '../core/interceptors/api';
 
-export const userService = {
+export interface User {
+  email: string;
+  token: string;
+  username: string;
+  bio: string | null;
+  image: string | null;
+}
+
+export type AuthState = 'loading' | 'authenticated' | 'unauthenticated' | 'unavailable';
+
+const TOKEN_KEY = 'jwtToken';
+
+export const jwtService = {
+  getToken: () => localStorage.getItem(TOKEN_KEY),
+  saveToken: (token: string) => localStorage.setItem(TOKEN_KEY, token),
+  destroyToken: () => localStorage.removeItem(TOKEN_KEY),
+};
+
+export const authService = {
   login: async (email: string, password: string): Promise<User> => {
     const { data } = await api.post<{ user: User }>('/users/login', { user: { email, password } });
     jwtService.saveToken(data.user.token);

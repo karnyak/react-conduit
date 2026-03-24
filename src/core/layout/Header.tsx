@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useAuth } from '../auth/AuthContext';
+import { useAuth } from '../../contexts/AuthContext';
 import { defaultImage } from '../../shared/utils/defaultImage';
 
 export function Header() {
